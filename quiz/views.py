@@ -15,14 +15,16 @@ def quiztype(request, type_id):
 def answer(request, q_id):
 	answered = []
 	if request.method == "POST":
-		answered.append(request.POST.get("option_1","off"),request.POST.get("option_2","off"),request.POST.get("option_3","off"),request.POST.get("option_4","off"))
-		print("________",answered.index("on"))
+		answered.append(request.POST.get("option_1","off"))
+		answered.append(request.POST.get("option_2","off"))
+		answered.append(request.POST.get("option_3","off"))
+		answered.append(request.POST.get("option_4","off"))
 		score = Score()
 		score.user = request.user
 		score.question = Question.objects.get(id = q_id)
-		score.answered = 
-		score.is_correct = 
-		score.score = 
+		score.answered = answered.index("on") + 1
+		score.is_correct = ""
+		score.score = ""
 
 		score.save()
 		return redirect('home')
