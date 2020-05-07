@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Type</title>
+</head>
+<body>
+	<h1>Answer the question</h1>
+	<form method="POST" action="{% url 'answer' question.id %}" enctype="multipart/form-data">
+		{% csrf_token%}
+		<p>{{ question.question }}</p><br/>
+		<a ><input type="radio" name="option_1" > {{ question.option_1 }}</a><br/>
+		<a ><input type="radio" name="option_2" > {{ question.option_2 }}</a><br/>
+		<a ><input type="radio" name="option_3" > {{ question.option_3 }}</a><br/>
+		<a ><input type="radio" name="option_4" > {{ question.option_4 }}</a><br/><br/>
+		<input type="submit" name="submit">
+		<br/>
+	</form>
+		
+</body>
+</html>

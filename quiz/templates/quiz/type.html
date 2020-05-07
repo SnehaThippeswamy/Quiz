@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Type</title>
+</head>
+<body>
+	<h1>Available quiz type</h1>
+
+	{% for q in questions %}
+		<a href="{% url 'answer' q.id %}">{{ q.question }}</a><br/>
+		<a href="{% url 'answer' q.id %}"><input type="submit" name="answer" value="Answer"></a><br/>
+		<br/>
+	{% endfor %}
+</body>
+</html>
